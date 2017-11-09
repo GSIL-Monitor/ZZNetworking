@@ -1,0 +1,27 @@
+{
+  "name": "ZZNetworking",
+  "version": "0.1.0",
+  "summary": "A short description of ZZNetworking.",
+  "description": "自己练习网络库封装",
+  "homepage": "https://github.com/zhangrenfeng/ZZNetworking",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhangrenfeng": "zhangrenfeng@bytedance.com"
+  },
+  "source": {
+    "git": "https://github.com/zhangrenfeng/ZZNetworking.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ZZNetworking/Classes/**/*",
+  "dependencies": {
+    "AFNetworking": [
+      "~> 3.1.0"
+    ]
+  }
+}

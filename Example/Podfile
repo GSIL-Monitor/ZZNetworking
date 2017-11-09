@@ -5,7 +5,5 @@ target 'ZZNetworking_Example' do
 
   target 'ZZNetworking_Tests' do
     inherit! :search_paths
-
-    pod 'FBSnapshotTestCase'
   end
 end
