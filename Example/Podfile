@@ -1,5 +1,8 @@
 use_frameworks!
 
+# 消除pod警告
+inhibit_all_warnings!
+
 target 'ZZNetworking_Example' do
   pod 'ZZNetworking', :path => '../'
 

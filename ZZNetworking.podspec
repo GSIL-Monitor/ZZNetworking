@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '8.0'
 
     s.source_files = 'ZZNetworking/Classes/**/*'
+    s.public_headers = "Pod/Classes/**/*.{h, hpp}"
 
     # s.resource_bundles = {
     #   'ZZNetworking' => ['ZZNetworking/Assets/*.png']
