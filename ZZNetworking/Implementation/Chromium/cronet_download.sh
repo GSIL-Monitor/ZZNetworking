@@ -23,8 +23,6 @@ if [ -e "$VERSION_FILE" ]; then								# 存在版本文件
 	echo -e "The previous version is: $previous_version"
 
 	if [ "$CURRENT_VERSION" != "$previous_version" ]; then	# 当前版本不是上一版本, 则需要更新
-		echo "$CURRENT_VERSION" > "$VERSION_FILE"			# 保存当前版本号
-
 		# 下载文件
 		echo "Downloading libs and includes......"
 		curl -o $DOWNLOAD_FILE "https://maven.byted.org/repository/ss_app_ios/com/bytedance/ss_app_ios/cronet/$CURRENT_VERSION/$DOWNLOAD_FILE"
@@ -54,15 +52,14 @@ if [ -e "$VERSION_FILE" ]; then								# 存在版本文件
 		fi
 		echo "remove download file:$DOWNLOAD_FILE success"
 
+		echo "$CURRENT_VERSION" > "$VERSION_FILE"			# 保存当前版本号
+
 		cd $CURRENT_DIR
 		exit $STATUS_CODE
 	else													# 版本号相同, 则不需要进行更新
 		echo "The current version is existed. no need to update."
 	fi
 else														# 版本文件不存在, 则创建
-	echo -e "First Run: Create version file"
-	echo "$CURRENT_VERSION" > "$VERSION_FILE"				# 保存当前版本号
-
 	# 下载文件
 	curl -o $DOWNLOAD_FILE "https://maven.byted.org/repository/ss_app_ios/com/bytedance/ss_app_ios/cronet/$CURRENT_VERSION/$DOWNLOAD_FILE"
 
@@ -73,7 +70,7 @@ else														# 版本文件不存在, 则创建
 		exit $STATUS_CODE
 	fi
 
-	nzip -o $DOWNLOAD_FILE								# 解压文件
+	unzip -o $DOWNLOAD_FILE								# 解压文件
 	STATUS_CODE=$?
 	if [ "$STATUS_CODE" -ne 0 ]; then					# 解压失败
 		echo "unzip download file:$DOWNLOAD_FILE failed. exit"
@@ -90,6 +87,9 @@ else														# 版本文件不存在, 则创建
 		exit $STATUS_CODE
 	fi
 	echo "remove download file:$DOWNLOAD_FILE success"
+
+	echo -e "First Run: Create version file"
+	echo "$CURRENT_VERSION" > "$VERSION_FILE"			# 保存当前版本号
 
 	cd $CURRENT_DIR
 	exit $STATUS_CODE
