@@ -3,7 +3,7 @@
 VERSION=1.0.25
 DOWNLOAD_FILE=cronet-$VERSION.jar
 CURRENT_DIR=$PWD
-cd Pod/Classes/TTNetworkBase/Chromium
+cd ZZNetworking/Implementation/Chromium
 if [ -e /tmp/$DOWNLOAD_FILE ]; then
     echo "Lib has been downloaded, use local cache."
     cp /tmp/$DOWNLOAD_FILE $DOWNLOAD_FILE
