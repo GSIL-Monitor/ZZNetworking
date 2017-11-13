@@ -3,6 +3,8 @@ use_frameworks!
 # 消除pod警告
 inhibit_all_warnings!
 
+install! 'cocoapods', :deterministic_uuids => false
+
 target 'ZZNetworking_Example' do
   pod 'ZZNetworking', :path => '../'
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=1.0.25
+VERSION=1.0.1
 DOWNLOAD_FILE=cronet-$VERSION.jar
 CURRENT_DIR=$PWD
 cd ZZNetworking/Implementation/Chromium
