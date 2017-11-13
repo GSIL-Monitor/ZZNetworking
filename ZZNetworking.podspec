@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
     s.libraries = "c++","base","base_static","boringssl", "chrome_zlib","crcrypto","cronet","dynamic_annotations" ,"modp_b64", "net","proto","sdch", "url", "zlib_x86_simd", "metrics","resolv"
 
     # 修改编译选项
-    s.pod_target_xcconfig = {'USER_HEADER_SEARCH_PATHS' => '${PODS_ROOT}/TTNetworkManager/ZZNetworking/Implementation/Chromium/includes', 'GCC_ENABLE_CPP_RTTI' => 'NO'}
+    s.pod_target_xcconfig = {'USER_HEADER_SEARCH_PATHS' => '${PODS_ROOT}/ZZNetworking/ZZNetworking/Implementation/Chromium/includes', 'GCC_ENABLE_CPP_RTTI' => 'NO'}
 
     s.libraries = "c++","base","base_static","boringssl", "chrome_zlib","crcrypto","cronet","dynamic_annotations" ,"modp_b64", "net","proto","protobuf_lite","sdch", "url", "zlib_x86_simd", "metrics","resolv"
 
