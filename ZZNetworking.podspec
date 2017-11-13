@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
     s.ios.frameworks = 'CFNetwork', 'MobileCoreServices', 'SystemConfiguration'
 
-    s.preserve_paths = "ZZNetworking/Implementation/Chromium/includes/*", "ZZNetworking/Implementation/Chromium/libs/*", "ZZNetworking/Implementation/Chromium/*.jar"
+    s.preserve_paths = "ZZNetworking/Implementation/Chromium/includes/*", "ZZNetworking/Implementation/Chromium/libs/*"
 
     # 指定外部静态库
     s.ios.vendored_libraries = "ZZNetworking/Implementation/Chromium/libs/libbase.a","ZZNetworking/Implementation/Chromium/libs/libbase_static.a","ZZNetworking/Implementation/Chromium/libs/libboringssl.a","ZZNetworking/Implementation/Chromium/libs/libchrome_zlib.a","ZZNetworking/Implementation/Chromium/libs/libcrcrypto.a" "ZZNetworking/Implementation/Chromium/libs/libcronet.a","ZZNetworking/Implementation/Chromium/libs/libdynamic_annotations.a","ZZNetworking/Implementation/Chromium/libs/libmodp_b64.a","ZZNetworking/Implementation/Chromium/libs/libnet.a","ZZNetworking/Implementation/Chromium/libs/libproto.a" "ZZNetworking/Implementation/Chromium/libs/libprotobuf_lite.a","ZZNetworking/Implementation/Chromium/libs/libsdch.a","ZZNetworking/Implementation/Chromium/libs/liburl.a","ZZNetworking/Implementation/Chromium/libs/libzlib_x86_simd.a" ,"ZZNetworking/Implementation/Chromium/libs/libmetrics.a"
@@ -35,6 +35,6 @@ Pod::Spec.new do |s|
 
     s.dependency 'AFNetworking', '~> 3.1.0'
 
-    s.prepare_command = 'sh ./ZZNetworking/Implementation/Chromium/getLib.sh'
+    s.prepare_command = 'sh ./ZZNetworking/Implementation/Chromium/cronet_download.sh'
 end
 
