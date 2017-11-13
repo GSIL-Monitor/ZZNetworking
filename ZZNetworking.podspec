@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.platform     = :ios, '7.0'
     s.requires_arc = true
 
-    s.source_files = 'ZZNetworking/**/*'
+    s.source_files = 'ZZNetworking/**/*.{h,m,mm,c}'
     s.public_header_files = "ZZNetworking/**/*.{h, hpp}"
 
     s.ios.exclude_files = "ZZNetworking/Implementation/Chromium/includes/**/*.h"
