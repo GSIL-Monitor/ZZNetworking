@@ -11,7 +11,8 @@ Pod::Spec.new do |s|
     s.author           = { 'zhangrenfeng' => 'zhangrenfeng@bytedance.com' }
     s.source           = { :git => 'https://github.com/zhangrenfeng/ZZNetworking.git', :tag => s.version.to_s }
 
-    s.ios.deployment_target = '8.0'
+    s.platform     = :ios, '7.0'
+    s.requires_arc = true
 
     s.source_files = 'ZZNetworking/**/*'
     s.public_header_files = "ZZNetworking/**/*.{h, hpp}"

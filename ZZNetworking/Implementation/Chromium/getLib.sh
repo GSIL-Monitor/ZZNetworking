@@ -1,5 +1,4 @@
 #!/bin/bash
-# created by haidong
 VERSION=1.0.25
 DOWNLOAD_FILE=cronet-$VERSION.jar
 CURRENT_DIR=$PWD
