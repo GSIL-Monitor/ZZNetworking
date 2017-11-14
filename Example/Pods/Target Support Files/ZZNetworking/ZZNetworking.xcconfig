@@ -1,9 +1,13 @@
 CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/ZZNetworking
 FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking"
+GCC_ENABLE_CPP_RTTI = NO
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Public"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../ZZNetworking/Implementation/Chromium/libs"
+OTHER_LDFLAGS = -l"base" -l"base_static" -l"boringssl" -l"c++" -l"chrome_zlib" -l"crcrypto" -l"cronet" -l"dynamic_annotations" -l"metrics" -l"modp_b64" -l"net" -l"proto" -l"protobuf_lite" -l"resolv" -l"sdch" -l"url" -l"zlib_x86_simd" -framework "CFNetwork" -framework "MobileCoreServices" -framework "SystemConfiguration"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}
 PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
 SKIP_INSTALL = YES
+USER_HEADER_SEARCH_PATHS = ${PODS_ROOT}/ZZNetworking/ZZNetworking/Implementation/Chromium/includes
