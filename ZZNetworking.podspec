@@ -29,9 +29,12 @@ Pod::Spec.new do |s|
     s.libraries = "c++","base","base_static","boringssl", "chrome_zlib","crcrypto","cronet","dynamic_annotations" ,"modp_b64", "net","proto","sdch", "url", "zlib_x86_simd", "metrics","resolv"
 
     # 修改编译选项
-    s.pod_target_xcconfig = {'USER_HEADER_SEARCH_PATHS' => '${PODS_ROOT}/ZZNetworking/ZZNetworking/Implementation/Chromium/includes/**', 'GCC_ENABLE_CPP_RTTI' => 'NO'}
+    s.pod_target_xcconfig = {'USER_HEADER_SEARCH_PATHS' => '${PODS_ROOT}/ZZNetworking/ZZNetworking/Implementation/Chromium/includes', 'GCC_ENABLE_CPP_RTTI' => 'NO'}
 
     s.libraries = "c++","base","base_static","boringssl", "chrome_zlib","crcrypto","cronet","dynamic_annotations" ,"modp_b64", "net","proto","protobuf_lite","sdch", "url", "zlib_x86_simd", "metrics","resolv"
+
+    # 为了支持ZZNetworking Example工程, 提供pod给外部使用时, 需将其注释掉
+    s.pod_target_xcconfig = {'USER_HEADER_SEARCH_PATHS' => '${PODS_ROOT}/../../ZZNetworking/Implementation/Chromium/includes/**', 'GCC_ENABLE_CPP_RTTI' => 'NO'}
 
     s.dependency 'AFNetworking', '~> 3.1.0'
 
