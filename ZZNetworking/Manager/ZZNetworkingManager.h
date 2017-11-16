@@ -64,6 +64,14 @@ typedef NS_ENUM(NSInteger, ZZNetworkImplementationType)
 @property (nonatomic, assign) BOOL enableDebugLog;
 
 
+/**
+ * 全局共享ZZNetworkingManager单例
+ *
+ * @return ZZNetworkingManager单例
+ */
++ (instancetype)sharedInstance;
+
+
 /* 设置底层网络库实现, 默认基于'AFNetworking'实现 */
 + (void)setNetworkImplementation:(ZZNetworkImplementationType)implementation;
 + (ZZNetworkImplementationType)networkImplementaion;
@@ -150,5 +158,18 @@ typedef NS_ENUM(NSInteger, ZZNetworkImplementationType)
              interceptor:(Class<ZZNetworkingInterceptorPtorocol>)interceptor
               autoResume:(BOOL)autoResume
               completion:(ZZNetworkingJSONCompletionBlock)completionBlock;
+
+
++ (ZZHTTPTask *)requestJSON:(NSString *)URLString
+                 parameters:(id)parameters
+                     method:(NSString *)method
+           needCommonParams:(BOOL)needCommonParams
+                headerField:(NSDictionary *)headerField
+          requestSerializer:(Class<ZZURLRequestSerializationProtocol>)requestSerializer
+         responseSerializer:(Class<ZZJSONResponseSerializationProtocol>)responseSerializer
+                  validator:(Class<ZZNetworkingValidatorProtocol>)validator
+                interceptor:(Class<ZZNetworkingInterceptorPtorocol>)interceptor
+                 autoResume:(BOOL)autoResume
+                 completion:(ZZNetworkingJSONCompletionBlock)completionBlock;
 
 @end //ZZNetworkingManager

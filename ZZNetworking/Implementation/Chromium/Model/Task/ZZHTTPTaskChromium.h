@@ -6,16 +6,16 @@
 //
 
 #import "ZZHTTPTask.h"
-#import "ZZHTTPRequest.h"
+#import "ZZHTTPRequestChromium.h"
 #import "ZZHTTPResponseChromium.h"
 
 namespace net {
-    Class URLFetcher;
-    Class URLFetcherDelegate;
+    class URLFetcher;
+    class URLFetcherDelegate;
 }
 
 namespace cronet {
-    Class CronetEnvironment;
+    class CronetEnvironment;
 }
 
 /**
@@ -39,12 +39,38 @@ typedef void(^ZZHTTPResponseChromiumProgressBlock)(int64_t current, int64_t tota
 
 @interface ZZHTTPTaskChromium : ZZHTTPTask
 
-@property (nonatomic, strong) NSProgress *uploadProgress;                   /* 上传进度 */
-@property (nonatomic, strong) NSProgress *downloadProgress;                 /* 下载进度 */
+/**
+ * 生成基于chromium net网络栈的网络请求任务
+ *
+ * @param request               网络请求
+ * @param env                   包含所有网络栈配置和初始化信息的CronetEnvironment实例对象
+ * @param taskID                网络请求标识符
+ * @param enableHTTPCache       是否开启HTTP缓存
+ * @param completionBlock       网络请求任务完成时的回调
+ * @param uploadProgressBlock   上传进度回调
+ * @param downloadProgressBlock 下载进度回调
+ *
+ * @return 基于chromium net网络栈的请求任务
+ */
+- (instancetype)initWithRequest:(ZZHTTPRequestChromium *)request
+                         engine:(cronet::CronetEnvironment *)env
+                         taskID:(UInt64)taskID
+                enableHTTPCache:(BOOL)enableHTTPCache
+                completionBlock:(ZZHTTPTaskChromiumCompletionBlock)completionBlock
+         uploadProgressCallback:(ZZHTTPResponseChromiumProgressBlock)uploadProgressBlock
+       downloadProgressCallback:(ZZHTTPResponseChromiumProgressBlock)downloadProgressBlock;
 
 
-- (instancetype)initWithRequest:(ZZHTTPRequest *)request
-                         engine:(cronet::CronetEnvironment)env
+- (instancetype)initWithRequest:(ZZHTTPRequestChromium *)request
+                         engine:(cronet::CronetEnvironment *)env
+                         taskID:(UInt64)taskID
+                completionBlock:(ZZHTTPTaskChromiumCompletionBlock)completionBlock
+         uploadProgressCallback:(ZZHTTPResponseChromiumProgressBlock)uploadProgressBlock
+       downloadProgressCallback:(ZZHTTPResponseChromiumProgressBlock)downloadProgressBlock;
+
+
+- (instancetype)initWithRequest:(ZZHTTPRequestChromium *)request
+                         engine:(cronet::CronetEnvironment *)env
                          taskID:(UInt64)taskID
                 completionBlock:(ZZHTTPTaskChromiumCompletionBlock)completionBlock;
 

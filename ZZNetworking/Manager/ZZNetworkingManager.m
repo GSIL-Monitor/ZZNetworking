@@ -6,6 +6,8 @@
 //
 
 #import "ZZNetworkingManager.h"
+#import "ZZNetworkingManagerChromium.h"
+#import "ZZNetworkingManagerAFNetworking.h"
 
 static ZZNetworkImplementationType p_curNetworkImpl = ZZNetworkImplementationTypeAFNetworking;
 
@@ -20,6 +22,18 @@ static ZZNetworkImplementationType p_curNetworkImpl = ZZNetworkImplementationTyp
 + (ZZNetworkImplementationType)networkImplementaion
 {
     return p_curNetworkImpl;
+}
+
++ (instancetype)sharedInstance
+{
+    if (ZZNetworkImplementationTypeAFNetworking == p_curNetworkImpl) {
+        return [ZZNetworkingManagerAFNetworking sharedInstance];
+    } else if (ZZNetworkImplementationTypeChromium == p_curNetworkImpl) {
+        return [ZZNetworkingManagerChromium sharedInstance];
+    } else {
+        NSAssert(NO, @"please set the implemented net lib.");
+        return nil;
+    }
 }
 
 @end //ZZNetworkingManager

@@ -50,7 +50,7 @@
  * 解析返回值
  *
  * @param response      要被解析的对象
- * @param jsonObj       返回的网络响应数据
+ * @param data          返回的网络响应数据
  * @param responseError 网络响应错误
  * @param resultError   传递给业务层的错误
  *

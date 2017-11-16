@@ -14,10 +14,10 @@
 @protocol ZZMultipartFormData <NSObject>
 
 /**
- *  为HTTP头部添加'Content-Disposition:file; filename=#{filename};name=#{name}"'和
+ *  为HTTP头部添加'Content-Disposition:file; name=#{name}; filename=#{filename}"'和
  *  'Content-Type: #{mimeType}',接下来是编码后的文件数据和多表单内容分隔符
  *
- *  @param data     要被编码并被添加到表单数据中的数据
+ *  @param data     要被编码并被添加到多表单数据中的数据
  *  @param name     与指定数据相关联的名称，该参数不能为nil
  *  @param fileName 与指定数据相关联的文件名称，该参数不能为nil
  *  @param mimeType 指定数据的MIME类型(例如:JPEG图片的MIME类型为image/jpeg)，
