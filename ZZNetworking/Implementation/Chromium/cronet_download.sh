@@ -8,7 +8,7 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-CURRENT_VERSION=1.0.1										# 用来保存当前chromium-net库的编译版本, 用以更新
+CURRENT_VERSION=1.0.25										# 用来保存当前chromium-net库的编译版本, 用以更新
 VERSION_FILE=chromium_version								# 用来保存上一次的版本号, 第一次调用时该文件不存在
 DOWNLOAD_FILE=cronet-$CURRENT_VERSION.jar					# 下载的文件名称
 
